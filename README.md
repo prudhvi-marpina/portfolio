@@ -4,7 +4,7 @@ Welcome to my personal portfolio website showcasing my work as a Data Scientist 
 
 ## 🚀 Live Demo
 
-Visit my portfolio at: [https://prudhvi-marpina.github.io/my-portfolio](https://prudhvi-marpina.github.io/my-portfolio)
+Visit my portfolio at: [https://prudhvi-marpina.github.io/portfolio](https://prudhvi-marpina.github.io/portfolio)
 
 ## 📋 About
 
@@ -56,12 +56,12 @@ To run this project locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/prudhvi-marpina/my-portfolio.git
+   git clone https://github.com/prudhvi-marpina/portfolio.git
    ```
 
 2. Navigate to the project directory:
    ```bash
-   cd my-portfolio
+   cd portfolio
    ```
 
 3. Open `index.html` in your web browser or use a local server:
@@ -79,8 +79,8 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🤝 Contact
 
-- **Email**: [Your Email]
-- **LinkedIn**: [Your LinkedIn Profile]
+- **Email**: prudhvi.marpina2@gmail.com
+- **LinkedIn**: https://www.linkedin.com/in/prudhvi-marpina
 - **GitHub**: [https://github.com/prudhvi-marpina](https://github.com/prudhvi-marpina)
 
 ---
