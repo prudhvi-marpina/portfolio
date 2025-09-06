@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prudhvi Marpina - Data Scientist & ML Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Professional CSS Variables */
+        :root {
+            --color-bg-primary: #0F172A;
+            --color-bg-secondary: #1E293B;
+            --color-bg-tertiary: #334155;
+            --color-text-primary: #F8FAFC;
+            --color-text-secondary: #CBD5E1;
+            --color-accent-blue: #3B82F6;
+            --color-accent-green: #10B981;
+            --color-accent-purple: #8B5CF6;
+            --color-accent-pink: #EC4899;
+            --color-accent-orange: #F59E0B;
+            --color-accent-cyan: #06B6D4;
+            --color-accent-yellow: #EAB308;
+            --color-border: #475569;
+            --color-success: #10B981;
+            --color-warning: #F59E0B;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+        }
+
+        /* Clean gradient text */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple), var(--color-accent-cyan));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* Professional card design */
+        .card {
+            background-color: var(--color-bg-secondary);
+            border-radius: 0.75rem;
+            border: 1px solid var(--color-border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            border-color: var(--color-accent-blue);
+        }
+
+        /* Colorful card borders */
+        .card:nth-child(5n+1):hover {
+            border-color: var(--color-accent-blue);
+        }
+        .card:nth-child(5n+2):hover {
+            border-color: var(--color-accent-green);
+        }
+        .card:nth-child(5n+3):hover {
+            border-color: var(--color-accent-purple);
+        }
+        .card:nth-child(5n+4):hover {
+            border-color: var(--color-accent-pink);
+        }
+        .card:nth-child(5n+5):hover {
+            border-color: var(--color-accent-orange);
+        }
+
+        /* Professional skill tags */
+        .skill-tag {
+            background-color: var(--color-bg-tertiary);
+            color: var(--color-text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+        }
+
+        /* Colorful skill tags - different colors for each */
+        .skill-tag:nth-child(6n+1) {
+            border-color: var(--color-accent-blue);
+            color: var(--color-accent-blue);
+        }
+        .skill-tag:nth-child(6n+2) {
+            border-color: var(--color-accent-green);
+            color: var(--color-accent-green);
+        }
+        .skill-tag:nth-child(6n+3) {
+            border-color: var(--color-accent-purple);
+            color: var(--color-accent-purple);
+        }
+        .skill-tag:nth-child(6n+4) {
+            border-color: var(--color-accent-pink);
+            color: var(--color-accent-pink);
+        }
+        .skill-tag:nth-child(6n+5) {
+            border-color: var(--color-accent-orange);
+            color: var(--color-accent-orange);
+        }
+        .skill-tag:nth-child(6n+6) {
+            border-color: var(--color-accent-cyan);
+            color: var(--color-accent-cyan);
+        }
+
+        .skill-tag:hover {
+            background-color: var(--color-accent-blue);
+            color: white;
+            border-color: var(--color-accent-blue);
+        }
+
+        /* Colorful skill tags */
+        .skill-tag:nth-child(6n+1):hover {
+            background-color: var(--color-accent-blue);
+            border-color: var(--color-accent-blue);
+        }
+        .skill-tag:nth-child(6n+2):hover {
+            background-color: var(--color-accent-green);
+            border-color: var(--color-accent-green);
+        }
+        .skill-tag:nth-child(6n+3):hover {
+            background-color: var(--color-accent-purple);
+            border-color: var(--color-accent-purple);
+        }
+        .skill-tag:nth-child(6n+4):hover {
+            background-color: var(--color-accent-pink);
+            border-color: var(--color-accent-pink);
+        }
+        .skill-tag:nth-child(6n+5):hover {
+            background-color: var(--color-accent-orange);
+            border-color: var(--color-accent-orange);
+        }
+        .skill-tag:nth-child(6n+6):hover {
+            background-color: var(--color-accent-cyan);
+            border-color: var(--color-accent-cyan);
+        }
+
+        /* Professional button */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple), var(--color-accent-cyan));
+            color: white;
+            padding: 0.625rem 1.75rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Professional navbar */
+        .navbar {
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        /* Clean section dividers */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--color-border), transparent);
+            margin: 4rem auto;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        /* Professional stats */
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--color-accent-blue);
+        }
+
+        /* Achievement badge */
+        .achievement-badge {
+            background-color: var(--color-success);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Professional typography */
+        .hero-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        /* Colorful section headers */
+        h2 {
+            background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple), var(--color-accent-cyan));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* Project metrics */
+        .metric {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+        }
+
+        .metric-icon {
+            width: 1rem;
+            height: 1rem;
+            color: var(--color-accent-blue);
+        }
+    </style>
+</head>
+<body class="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
+    <!-- Professional Navbar -->
+    <nav class="navbar p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-white tracking-wide">PRUDHVI MARPINA</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-[var(--color-accent-blue)] transition-colors">About</a>
+                <a href="#experience" class="hover:text-[var(--color-accent-blue)] transition-colors">Experience</a>
+                <a href="#skills" class="hover:text-[var(--color-accent-blue)] transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-[var(--color-accent-blue)] transition-colors">Projects</a>
+                <a href="#education" class="hover:text-[var(--color-accent-blue)] transition-colors">Education</a>
+                <a href="#contact" class="hover:text-[var(--color-accent-blue)] transition-colors">Contact</a>
+                <a href="Prudhvi_Marpina_Data_Scientist_Resume.pdf" target="_blank" class="btn-primary">Resume</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 bg-[var(--color-bg-secondary)] rounded-lg p-4">
+            <a href="#about" class="block hover:text-[var(--color-accent-blue)] transition-colors">About</a>
+            <a href="#experience" class="block hover:text-[var(--color-accent-blue)] transition-colors">Experience</a>
+            <a href="#skills" class="block hover:text-[var(--color-accent-blue)] transition-colors">Skills</a>
+            <a href="#projects" class="block hover:text-[var(--color-accent-blue)] transition-colors">Projects</a>
+            <a href="#education" class="block hover:text-[var(--color-accent-blue)] transition-colors">Education</a>
+            <a href="#contact" class="block hover:text-[var(--color-accent-blue)] transition-colors">Contact</a>
+            <a href="Prudhvi_Marpina_Data_Scientist_Resume.pdf" target="_blank" class="block btn-primary text-center">Resume</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-8 py-12">
+
+        <!-- Professional Hero Section -->
+        <section id="hero" class="py-16 text-center md:text-left">
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-12">
+                <div class="md:w-2/3">
+                    <div class="mb-4">
+                        <span class="achievement-badge">Open to Opportunities</span>
+                    </div>
+                    
+                    <h1 class="hero-title mb-6">
+                        Data Scientist & ML Engineer<br>
+                        <span class="text-gradient">Building Intelligent Solutions</span>
+                    </h1>
+                    
+                    <p class="text-lg text-[var(--color-text-secondary)] mb-6 max-w-2xl leading-relaxed">
+                        I build data systems that actually work in production. Over 4 years, I've shipped ML models that drive real business decisions - from churn prediction that saved millions to recommendation engines that boosted engagement by 20%. My sweet spot? Taking messy data and turning it into clean, scalable pipelines that teams can actually use.
+                    </p>
+                    
+                    <!-- Professional Key Metrics -->
+                    <div class="grid grid-cols-3 gap-4 mb-8">
+                        <div>
+                            <div class="stat-number">4+</div>
+                            <div class="text-xs text-[var(--color-text-secondary)]">Years Experience</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">8+</div>
+                            <div class="text-xs text-[var(--color-text-secondary)]">ML Projects</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">$2M+</div>
+                            <div class="text-xs text-[var(--color-text-secondary)]">Revenue Impact</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
+                        <a href="https://github.com/prudhvi-marpina" target="_blank" class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent-blue)] transition-colors">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/prudhvi-marpina" target="_blank" class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent-blue)] transition-colors">
+                            <i class="fab fa-linkedin fa-2x"></i>
+                        </a>
+                        <a href="Prudhvi_Marpina_Data_Scientist_Resume.pdf" target="_blank" class="btn-primary inline-flex items-center">
+                            <i class="fas fa-download mr-2"></i>Download Resume
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/3">
+                    <img src="Profile.JPG" alt="Prudhvi Marpina" class="rounded-full w-48 h-48 md:w-56 md:h-56 object-cover border-4 border-[var(--color-border)]">
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Professional About Section -->
+        <section id="about" class="py-16">
+            <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
+            <div class="card p-8 max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8 items-center">
+                    <div class="md:col-span-1">
+                        <img src="Profile.JPG" alt="Prudhvi Marpina" class="rounded-lg w-full max-w-xs mx-auto object-cover">
+                </div>
+                    <div class="md:col-span-2">
+                        <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed">
+                            I'm a Data Scientist and ML Engineer with 4+ years of experience building end-to-end data solutions. I've developed scalable data pipelines, deployed production ML models, and created analytics dashboards that drive business decisions.
+                        </p>
+                        <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed mt-4">
+                            My expertise covers the full data lifecycle - from data engineering and ETL processes to machine learning model development and deployment. I'm proficient in Python, SQL, cloud platforms (AWS/Azure/GCP), and modern ML frameworks including TensorFlow and PyTorch.
+                        </p>
+                        <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed mt-4">
+                            I've successfully delivered projects that improved business metrics by 15-25% and reduced data processing time by 30-50%. I bridge the gap between technical implementation and business requirements, ensuring solutions are both robust and impactful.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <!-- Professional Experience Section -->
+        <section id="experience" class="py-16">
+            <h2 class="text-3xl font-bold text-center mb-12">Professional Journey</h2>
+            <div class="space-y-12 max-w-5xl mx-auto">
+                
+                <!-- Data Scientist Role -->
+                <div class="card p-6">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <!-- Role Info -->
+                        <div class="md:w-1/3">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-xl font-bold text-[var(--color-accent-blue)]">Data Scientist</h3>
+                                <span class="text-xs bg-[var(--color-accent-green)] text-white px-2 py-1 rounded">2021-2023</span>
+                            </div>
+                            <p class="text-sm text-[var(--color-text-secondary)] mb-1">Tech Friday | Hyderabad, India</p>
+                            
+                            <div class="mt-4 space-y-2">
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-chart-line text-[var(--color-accent-blue)] text-xs"></i>
+                                    <span class="text-xs text-[var(--color-text-secondary)]">ML Model Development</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-database text-[var(--color-accent-blue)] text-xs"></i>
+                                    <span class="text-xs text-[var(--color-text-secondary)]">Data Engineering</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-cloud text-[var(--color-accent-blue)] text-xs"></i>
+                                    <span class="text-xs text-[var(--color-text-secondary)]">Cloud Architecture</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Key Achievements -->
+                        <div class="md:w-2/3">
+                            <div class="grid grid-cols-2 gap-3 mb-4">
+                                <div class="bg-gradient-to-br from-[var(--color-accent-blue)] to-[var(--color-accent-cyan)] p-2 rounded text-center">
+                                    <div class="text-white font-semibold text-sm">95%</div>
+                                    <div class="text-xs text-blue-100">Pipeline Reliability</div>
+                                </div>
+                                <div class="bg-gradient-to-br from-[var(--color-accent-green)] to-[var(--color-accent-cyan)] p-2 rounded text-center">
+                                    <div class="text-white font-semibold text-sm">25%</div>
+                                    <div class="text-xs text-green-100">Faster Processing</div>
+                                </div>
+                                <div class="bg-gradient-to-br from-[var(--color-accent-purple)] to-[var(--color-accent-pink)] p-2 rounded text-center">
+                                    <div class="text-white font-semibold text-sm">20%</div>
+                                    <div class="text-xs text-purple-100">Engagement Boost</div>
+                                </div>
+                                <div class="bg-gradient-to-br from-[var(--color-accent-orange)] to-[var(--color-accent-yellow)] p-2 rounded text-center">
+                                    <div class="text-white font-semibold text-sm">30%</div>
+                                    <div class="text-xs text-orange-100">Fewer Failures</div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-[var(--color-text-secondary)] text-sm leading-relaxed mb-4">
+                                <p class="mb-2">Built serverless data pipelines using AWS Lambda and S3, achieving 95% reliability across multiple data sources. Developed ML models for churn prediction and user segmentation, achieving 85% accuracy and driving 15-20% engagement improvements.</p>
+                                <p>Implemented automated ML retraining with Apache Airflow and created executive dashboards in Power BI. These solutions became the foundation for data-driven decision making across the organization.</p>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-1">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Scikit-learn</span>
+                                <span class="skill-tag">AWS Lambda</span>
+                                <span class="skill-tag">Apache Airflow</span>
+                                <span class="skill-tag">Power BI</span>
+                                <span class="skill-tag">Stakeholder Management</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Junior Data Analyst Role -->
+                <div class="card p-6">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <!-- Role Info -->
+                        <div class="md:w-1/3">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-xl font-bold text-[var(--color-accent-blue)]">Junior Data Analyst</h3>
+                                <span class="text-xs bg-[var(--color-accent-green)] text-white px-2 py-1 rounded">2019-2021</span>
+                            </div>
+                            <p class="text-sm text-[var(--color-text-secondary)] mb-1">Ahlada Engineers Ltd | Hyderabad, India</p>
+                            
+                            <div class="mt-4 space-y-2">
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-chart-bar text-[var(--color-accent-blue)] text-xs"></i>
+                                    <span class="text-xs text-[var(--color-text-secondary)]">Data Analysis</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-table text-[var(--color-accent-blue)] text-xs"></i>
+                                    <span class="text-xs text-[var(--color-text-secondary)]">Dashboard Development</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-cogs text-[var(--color-accent-blue)] text-xs"></i>
+                                    <span class="text-xs text-[var(--color-text-secondary)]">Process Optimization</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Key Achievements -->
+                        <div class="md:w-2/3">
+                            <div class="grid grid-cols-2 gap-3 mb-4">
+                                <div class="bg-gradient-to-br from-[var(--color-accent-blue)] to-[var(--color-accent-cyan)] p-2 rounded text-center">
+                                    <div class="text-white font-semibold text-sm">15%</div>
+                                    <div class="text-xs text-blue-100">Faster Collections</div>
+                                </div>
+                                <div class="bg-gradient-to-br from-[var(--color-accent-green)] to-[var(--color-accent-cyan)] p-2 rounded text-center">
+                                    <div class="text-white font-semibold text-sm">60%</div>
+                                    <div class="text-xs text-green-100">Less Reporting Time</div>
+                                </div>
+                                <div class="bg-gradient-to-br from-[var(--color-accent-purple)] to-[var(--color-accent-pink)] p-2 rounded text-center">
+                                    <div class="text-white font-semibold text-sm">15%</div>
+                                    <div class="text-xs text-purple-100">Better Fulfillment</div>
+                                </div>
+                                <div class="bg-gradient-to-br from-[var(--color-accent-orange)] to-[var(--color-accent-yellow)] p-2 rounded text-center">
+                                    <div class="text-white font-semibold text-sm">100%</div>
+                                    <div class="text-xs text-orange-100">Data-Driven Culture</div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-[var(--color-text-secondary)] text-sm leading-relaxed mb-4">
+                                <p class="mb-2">Led the company's first data-driven analytics initiative, transforming operations and supply chain decisions. Analyzed sales data using Python and SQL, uncovering payment patterns that reduced collection time by 15%.</p>
+                                <p>Built Tableau dashboards and processed SAP ERP data for supply chain reports. These solutions improved on-time delivery by 10-15% and provided real-time visibility into key metrics.</p>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-1">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">SQL</span>
+                                <span class="skill-tag">Tableau</span>
+                                <span class="skill-tag">Excel</span>
+                                <span class="skill-tag">SAP ERP</span>
+                                <span class="skill-tag">Problem Solving</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Professional Skills Section -->
+        <section id="skills" class="py-16">
+            <h2 class="text-3xl font-bold text-center mb-12">Technical Expertise</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                
+                <!-- Core Data Science & ML -->
+                <div class="card p-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[var(--color-accent-blue)] to-[var(--color-accent-purple)] opacity-10 rounded-full -translate-y-10 translate-x-10"></div>
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-brain text-3xl text-[var(--color-accent-blue)] mr-4"></i>
+                        <h3 class="text-2xl font-bold text-white">Data Science & ML</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-blue)]">
+                            <div class="font-semibold text-white mb-1">Programming</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]">Python, SQL, R, Pandas, NumPy, Scipy</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-purple)]">
+                            <div class="font-semibold text-white mb-1">ML Frameworks</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]">TensorFlow, PyTorch, Scikit-learn, XGBoost, LightGBM</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-green)]">
+                            <div class="font-semibold text-white mb-1">NLP & AI</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]">Hugging Face, spaCy, LangChain, LLMs, BART, NLTK</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-warning)]">
+                            <div class="font-semibold text-white mb-1">Analytics</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]">Statistical Analysis, A/B Testing, Clustering, Regression, Classification</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud & Infrastructure -->
+                <div class="card p-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[var(--color-accent-green)] to-[var(--color-accent-blue)] opacity-10 rounded-full -translate-y-10 translate-x-10"></div>
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-cloud text-3xl text-[var(--color-accent-green)] mr-4"></i>
+                        <h3 class="text-2xl font-bold text-white">Cloud & Infrastructure</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-blue)]">
+                            <div class="font-semibold text-white mb-1">Cloud Platforms</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]">AWS, Azure, GCP, Lambda, S3, EC2, SageMaker</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-purple)]">
+                            <div class="font-semibold text-white mb-1">Big Data</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]">Apache Spark, PySpark, Airflow, Databricks</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-green)]">
+                            <div class="font-semibold text-white mb-1">Databases</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]">PostgreSQL, MongoDB, BigQuery, Redis, ChromaDB, Snowflake</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-warning)]">
+                            <div class="font-semibold text-white mb-1">DevOps</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]">Docker, Kubernetes, CI/CD, MLflow, Git, GitHub</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Engineering & MLOps -->
+                <div class="card p-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[var(--color-accent-purple)] to-[var(--color-accent-blue)] opacity-10 rounded-full -translate-y-10 translate-x-10"></div>
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-cogs text-3xl text-[var(--color-accent-purple)] mr-4"></i>
+                        <h3 class="text-2xl font-bold text-white">Data Engineering & MLOps</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-blue)]">
+                            <div class="font-semibold text-white mb-1">Data Pipelines</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]">ETL/ELT, Data Modeling, Data Quality, Feature Engineering</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-purple)]">
+                            <div class="font-semibold text-white mb-1">MLOps</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]">Model Deployment, Monitoring, Versioning, Model Registry</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-green)]">
+                            <div class="font-semibold text-white mb-1">APIs & Tools</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]">FastAPI, Streamlit, REST APIs, Git, GitHub Actions</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-warning)]">
+                            <div class="font-semibold text-white mb-1">Web Scraping</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]">Scrapy, Playwright, Selenium, Beautiful Soup, Requests</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Intelligence & Analytics -->
+                <div class="card p-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[var(--color-warning)] to-[var(--color-accent-green)] opacity-10 rounded-full -translate-y-10 translate-x-10"></div>
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-chart-line text-3xl text-[var(--color-warning)] mr-4"></i>
+                        <h3 class="text-2xl font-bold text-white">Business Intelligence & Analytics</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-blue)]">
+                            <div class="font-semibold text-white mb-1">Visualization</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]">Power BI, Tableau, Looker Studio, Matplotlib, Seaborn, Plotly</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-purple)]">
+                            <div class="font-semibold text-white mb-1">Generative AI</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]">RAG Systems, Vector DBs, Prompt Engineering, Fine-tuning</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-green)]">
+                            <div class="font-semibold text-white mb-1">Business Skills</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]">Stakeholder Management, ROI Analysis, Agile, Project Management</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-warning)]">
+                            <div class="font-semibold text-white mb-1">Domain Expertise</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]">Customer Analytics, Fraud Detection, Supply Chain, Time Series</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Professional Projects Section -->
+        <section id="projects" class="py-16">
+            <h2 class="text-3xl font-bold text-center mb-12">Technical Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                
+                <!-- Agentic BI Project -->
+                <div class="card p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-[var(--color-accent-blue)]">Agentic BI: Conversational Data Analysis</h3>
+                        <span class="achievement-badge">Featured</span>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <img src="agentic-bi-architecture.png" 
+                             alt="Agentic BI Architecture - LangChain Agents with Mistral AI" 
+                             class="w-full h-auto max-h-64 object-contain rounded-lg mb-4"
+                             style="border: 1px solid #475569;">
+                    </div>
+                    
+                    <p class="text-[var(--color-text-secondary)] mb-4 leading-relaxed">
+                        Developed a conversational business intelligence system using LangChain agents and Mistral AI. The system automatically converts natural language queries to SQL, generates interactive Plotly visualizations, and provides AI-powered insights. Built with Streamlit for seamless user experience.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <div class="bg-gradient-to-br from-[var(--color-accent-blue)] to-[var(--color-accent-cyan)] p-3 rounded text-center">
+                            <div class="text-white font-semibold text-sm">100%</div>
+                            <div class="text-xs text-blue-100">Automated</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-[var(--color-accent-purple)] to-[var(--color-accent-pink)] p-3 rounded text-center">
+                            <div class="text-white font-semibold text-sm">3 Agents</div>
+                            <div class="text-xs text-purple-100">Specialized</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-tag">LangChain</span>
+                        <span class="skill-tag">Mistral AI</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Plotly</span>
+                        <span class="skill-tag">SQLite</span>
+                    </div>
+                    
+                    <a href="https://github.com/prudhvi-marpina/agentic_bi_project" target="_blank" class="text-[var(--color-accent-blue)] hover:underline">
+                        <i class="fab fa-github mr-2"></i>View on GitHub
+                    </a>
+                </div>
+
+                <!-- UTDIGI Chatbot -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-[var(--color-accent-blue)] mb-2">UTDIGI - University Chatbot</h3>
+                    
+                    <div class="mb-4">
+                        <img src="utdigi.png" 
+                             alt="UTDIGI University Chatbot - RAG System with LangChain" 
+                             class="w-full h-auto max-h-64 object-contain rounded-lg mb-4">
+                    </div>
+                    
+                    <p class="text-[var(--color-text-secondary)] mb-4 leading-relaxed">
+                        Built a RAG-powered chatbot using LangChain and Sentence Transformers. Implemented web scraping with Scrapy and Playwright to extract university content. Created FastAPI backend with Redis caching and Streamlit frontend for real-time conversations.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <div class="bg-gradient-to-br from-[var(--color-accent-green)] to-[var(--color-accent-cyan)] p-3 rounded text-center">
+                            <div class="text-white font-semibold text-sm">3,000+</div>
+                            <div class="text-xs text-green-100">Documents</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-[var(--color-accent-orange)] to-[var(--color-accent-yellow)] p-3 rounded text-center">
+                            <div class="text-white font-semibold text-sm">25%</div>
+                            <div class="text-xs text-orange-100">Relevance Boost</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-tag">LangChain</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">ChromaDB</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Scrapy</span>
+                        <span class="skill-tag">Redis</span>
+                    </div>
+                    
+                    <a href="https://github.com/prudhvi-marpina/utdigi-chatbot" target="_blank" class="text-[var(--color-accent-blue)] hover:underline">
+                        <i class="fab fa-github mr-2"></i>View on GitHub
+                    </a>
+                </div>
+
+                <!-- Market Optimization -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-[var(--color-accent-blue)] mb-2">Market Optimization for Gardein</h3>
+                    
+                    <div class="mb-4">
+                        <img src="garden.png" 
+                             alt="Market Optimization for Gardein - ML-Driven Business Analytics" 
+                             class="w-full h-auto max-h-64 object-contain rounded-lg mb-4">
+                    </div>
+                    
+                    <p class="text-[var(--color-text-secondary)] mb-4 leading-relaxed">
+                        Conducted comprehensive market analysis using Scikit-learn clustering and regression algorithms. Analyzed 3 years of sales data to identify $10M+ revenue opportunities. Created interactive visualizations with Pandas, Matplotlib, and Seaborn for regional market segmentation.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <div class="bg-[var(--color-bg-tertiary)] p-2 rounded text-center">
+                            <div class="text-[var(--color-accent-blue)] font-semibold text-sm">$10M+</div>
+                            <div class="text-xs text-[var(--color-text-secondary)]">Revenue Impact</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-tertiary)] p-2 rounded text-center">
+                            <div class="text-[var(--color-accent-blue)] font-semibold text-sm">25%</div>
+                            <div class="text-xs text-[var(--color-text-secondary)]">Sales Potential</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Seaborn</span>
+                        <span class="skill-tag">Clustering</span>
+                        <span class="skill-tag">Regression</span>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/prudhvi-marpina/conagra-case-study" target="_blank" class="text-[var(--color-accent-blue)] hover:underline">
+                            <i class="fab fa-github mr-2"></i>Conagra Case Study
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TrustGuard ML -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-[var(--color-accent-blue)] mb-2">TrustGuard ML: Blockchain Security</h3>
+                    
+                    <div class="mb-4">
+                        <img src="fraud.png" 
+                             alt="TrustGuard ML - Blockchain Fraud Detection System" 
+                             class="w-full h-auto max-h-64 object-contain rounded-lg mb-4">
+                    </div>
+                    
+                    <p class="text-[var(--color-text-secondary)] mb-4 leading-relaxed">
+                        Developed a fraud detection system for blockchain transactions using Scikit-learn algorithms. Processed 78,600+ metaverse transactions with Pandas data preprocessing. Implemented GridSearchCV for hyperparameter tuning and achieved 96% accuracy in fraud detection.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <div class="bg-[var(--color-bg-tertiary)] p-2 rounded text-center">
+                            <div class="text-[var(--color-accent-blue)] font-semibold text-sm">96%</div>
+                            <div class="text-xs text-[var(--color-text-secondary)]">Accuracy</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-tertiary)] p-2 rounded text-center">
+                            <div class="text-[var(--color-accent-blue)] font-semibold text-sm">20%</div>
+                            <div class="text-xs text-[var(--color-text-secondary)]">Security Boost</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">GridSearchCV</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Regression</span>
+                        <span class="skill-tag">Clustering</span>
+                    </div>
+                    
+                    <a href="https://github.com/prudhvi-marpina/TrustGuard-ML" target="_blank" class="text-[var(--color-accent-blue)] hover:underline">
+                        <i class="fab fa-github mr-2"></i>View on GitHub
+                    </a>
+                </div>
+                
+                <!-- EduBot AI Companion -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-[var(--color-accent-blue)] mb-2">EduBot: AI Knowledge Companion</h3>
+                    
+                    <div class="mb-4">
+                        <img src="edubot.png" 
+                             alt="EduBot AI Knowledge Companion - BART and spaCy NLP System" 
+                             class="w-full h-auto max-h-64 object-contain rounded-lg mb-4">
+                    </div>
+                    
+                    <p class="text-[var(--color-text-secondary)] mb-4 leading-relaxed">
+                        Built an NLP system using BART and spaCy for knowledge extraction. Integrated structured SPARQL queries with Wikipedia API data. Implemented text summarization and entity recognition, achieving 95% accuracy with 50% faster response times.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <div class="bg-[var(--color-bg-tertiary)] p-2 rounded text-center">
+                            <div class="text-[var(--color-accent-blue)] font-semibold text-sm">95%</div>
+                            <div class="text-xs text-[var(--color-text-secondary)]">Accuracy</div>
+                </div>
+                        <div class="bg-[var(--color-bg-tertiary)] p-2 rounded text-center">
+                            <div class="text-[var(--color-accent-blue)] font-semibold text-sm">50%</div>
+                            <div class="text-xs text-[var(--color-text-secondary)]">Faster Responses</div>
+                </div>
+                </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-tag">BART</span>
+                        <span class="skill-tag">spaCy</span>
+                        <span class="skill-tag">NLTK</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">SPARQL</span>
+                        <span class="skill-tag">Wikipedia API</span>
+                </div>
+                    
+                    <a href="https://github.com/prudhvi-marpina/AI-Knowledge-Bot" target="_blank" class="text-[var(--color-accent-blue)] hover:underline">
+                        <i class="fab fa-github mr-2"></i>View on GitHub
+                    </a>
+                </div>
+
+                <!-- Sentiment Analysis Project -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-[var(--color-accent-blue)] mb-2">Sentiment Analysis: Israel-Palestine Conflict</h3>
+                    
+                    <div class="mb-4">
+                        <img src="sentiment.png" 
+                             alt="Sentiment Analysis on Reddit Data - VADER and NLP Analysis" 
+                             class="w-full h-auto max-h-64 object-contain rounded-lg mb-4">
+                    </div>
+                    
+                    <p class="text-[var(--color-text-secondary)] mb-4 leading-relaxed">
+                        Conducted comprehensive sentiment analysis on Reddit discussions about the Israel-Palestine conflict using VADER sentiment analysis. Collected data using PRAW API, performed text preprocessing, and created visualizations to track sentiment trends over time.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <div class="bg-[var(--color-bg-tertiary)] p-2 rounded text-center">
+                            <div class="text-[var(--color-accent-blue)] font-semibold text-sm">VADER</div>
+                            <div class="text-xs text-[var(--color-text-secondary)]">Sentiment Analysis</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-tertiary)] p-2 rounded text-center">
+                            <div class="text-[var(--color-accent-blue)] font-semibold text-sm">Reddit API</div>
+                            <div class="text-xs text-[var(--color-text-secondary)]">Data Collection</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PRAW</span>
+                        <span class="skill-tag">VADER</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Text Mining</span>
+                    </div>
+                    
+                    <a href="https://github.com/prudhvi-marpina/Sentiment-Analysis" target="_blank" class="text-[var(--color-accent-blue)] hover:underline">
+                        <i class="fab fa-github mr-2"></i>View on GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Education Section -->
+        <section id="education" class="py-16">
+            <h2 class="text-3xl font-bold text-center mb-12">Education</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                
+                <!-- Master's Degree -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-[var(--color-accent-blue)] mb-2">Master's in Data Science and AI</h3>
+                    <p class="text-[var(--color-text-secondary)]">The University of Texas at Dallas</p>
+                </div>
+
+                <!-- Bachelor's Degree -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-[var(--color-accent-blue)] mb-2">Bachelor's in Electrical and Electronics Engineering</h3>
+                    <p class="text-[var(--color-text-secondary)]">Birla Institute of Technology and Science, Pilani</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Professional Contact Section -->
+        <section id="contact" class="py-16">
+            <h2 class="text-3xl font-bold text-center mb-12">Get in Touch</h2>
+            <div class="card p-8 max-w-lg mx-auto text-center">
+                <p class="text-lg text-[var(--color-text-secondary)] mb-6">
+                    I'm always interested in discussing new opportunities in data science and machine learning. Let's connect!
+                </p>
+                <div class="space-y-4">
+                    <a href="mailto:prudhvi.marpina2@gmail.com" class="btn-primary block">
+                        <i class="fas fa-envelope mr-2"></i>Email Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/prudhvi-marpina" target="_blank" class="block bg-[var(--color-bg-tertiary)] hover:bg-[var(--color-accent-blue)] text-white font-semibold py-3 px-8 rounded-lg transition-colors">
+                        <i class="fab fa-linkedin mr-2"></i>Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Professional Footer -->
+    <footer class="bg-[var(--color-bg-secondary)] text-center p-8 mt-12">
+        <div class="container mx-auto">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://github.com/prudhvi-marpina" target="_blank" class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent-blue)] transition-colors">
+                    <i class="fab fa-github fa-2x"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/prudhvi-marpina" target="_blank" class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent-blue)] transition-colors">
+                    <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+            </div>
+            <p class="text-sm text-[var(--color-text-secondary)]">&copy; 2025 Prudhvi Marpina. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
