@@ -1,119 +1,133 @@
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { Code, Database, Cloud, Brain, BarChart, Settings } from 'lucide-react';
+
 export default function Skills() {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const skillCategories = [
+    {
+      title: 'Programming & Software Engineering',
+      icon: Code,
+      color: 'text-blue-600',
+      bgColor: 'bg-blue-100',
+      skills: [
+        { name: 'Languages', items: 'Python, TypeScript, React, Node.js, Java, C++, SQL, R' },
+        { name: 'Frameworks & APIs', items: 'FastAPI, REST APIs, GitHub, GitHub Actions, CI/CD, Plotly/Dash' },
+        { name: 'Development Tools', items: 'Git, Docker, VS Code, Jupyter, Postman, Swagger' }
+      ]
+    },
+    {
+      title: 'Data Science & Machine Learning',
+      icon: Brain,
+      color: 'text-purple-600',
+      bgColor: 'bg-purple-100',
+      skills: [
+        { name: 'ML Libraries', items: 'Scikit-learn, PyTorch, TensorFlow, XGBoost, Pandas, NumPy' },
+        { name: 'Data Processing', items: 'Apache Spark, Apache Airflow, Kafka, dbt, Apache Beam' },
+        { name: 'Visualization', items: 'Matplotlib, Seaborn, Plotly, Tableau, Power BI, Streamlit' }
+      ]
+    },
+    {
+      title: 'Cloud & Infrastructure',
+      icon: Cloud,
+      color: 'text-green-600',
+      bgColor: 'bg-green-100',
+      skills: [
+        { name: 'Cloud Platforms', items: 'AWS (Lambda, S3, EC2, RDS), GCP (BigQuery, Cloud Functions), Azure' },
+        { name: 'Data Storage', items: 'MongoDB, PostgreSQL, MySQL, Redis, Elasticsearch, Snowflake' },
+        { name: 'DevOps', items: 'Docker, Kubernetes, Terraform, Jenkins, CI/CD Pipelines' }
+      ]
+    },
+    {
+      title: 'AI & Advanced Analytics',
+      icon: BarChart,
+      color: 'text-orange-600',
+      bgColor: 'bg-orange-100',
+      skills: [
+        { name: 'AI/ML Frameworks', items: 'LangChain, OpenAI GPT, Hugging Face, Transformers, BERT' },
+        { name: 'Analytics', items: 'Statistical Analysis, A/B Testing, Time Series, Forecasting' },
+        { name: 'Specialized Tools', items: 'Apache Kafka, Apache Airflow, MLflow, Weights & Biases' }
+      ]
+    }
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 40, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 15,
+        duration: 0.8,
+      },
+    },
+  };
+
   return (
-    <section id="skills" className="py-16">
-      <h2 className="text-3xl font-bold text-center mb-12">Professional Skills</h2>
-      <div className="max-w-6xl mx-auto">
-        <div className="grid gap-8">
-          
-          {/* Programming & Software Engineering */}
-          <div className="card p-8 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[var(--color-accent-blue)] to-[var(--color-accent-purple)] opacity-10 rounded-full -translate-y-10 translate-x-10"></div>
-            <div className="flex items-center mb-6">
-              <i className="fas fa-code text-3xl text-[var(--color-accent-blue)] mr-4"></i>
-              <h3 className="text-2xl font-bold text-white">Programming & Software Engineering</h3>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-blue)]">
-                <div className="font-semibold text-white mb-1">Languages</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">Python, R, SQL, JavaScript, TypeScript, HTML/CSS, Bash</div>
-              </div>
-              <div className="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-purple)]">
-                <div className="font-semibold text-white mb-1">Frameworks & Libraries</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">React, Node.js, Express, Flask, FastAPI, Django, REST APIs</div>
-              </div>
-              <div className="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-green)]">
-                <div className="font-semibold text-white mb-1">Core Concepts</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">Data Structures, Algorithms, OOP, System Design, Microservices</div>
-              </div>
-              <div className="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-warning)]">
-                <div className="font-semibold text-white mb-1">Data Libraries</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">Pandas, NumPy, Scipy, Matplotlib, Seaborn, Scikit-learn</div>
-              </div>
-            </div>
-          </div>
+    <motion.section
+      ref={ref}
+      className="py-20 bg-gray-50"
+      variants={containerVariants}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+    >
+      <div className="container mx-auto px-6">
+        <motion.div
+          className="text-center mb-16"
+          variants={itemVariants}
+        >
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
+            Technical Expertise
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Comprehensive skills across the full data science and software engineering stack
+          </p>
+        </motion.div>
 
-          {/* Cloud & Distributed Systems */}
-          <div className="card p-8 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[var(--color-accent-green)] to-[var(--color-accent-blue)] opacity-10 rounded-full -translate-y-10 translate-x-10"></div>
-            <div className="flex items-center mb-6">
-              <i className="fas fa-cloud text-3xl text-[var(--color-accent-green)] mr-4"></i>
-              <h3 className="text-2xl font-bold text-white">Cloud & Distributed Systems</h3>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-blue)]">
-                <div className="font-semibold text-white mb-1">Cloud Platforms</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">AWS (Lambda, S3, DynamoDB, ECS, Redshift, SageMaker), GCP (BigQuery), Azure</div>
+        <div className="max-w-6xl mx-auto space-y-8">
+          {skillCategories.map((category, index) => (
+            <motion.div
+              key={index}
+              className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
+            >
+              <div className="flex items-center mb-6">
+                <div className={`w-12 h-12 ${category.bgColor} rounded-xl flex items-center justify-center mr-4`}>
+                  <category.icon className={`w-6 h-6 ${category.color}`} />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">{category.title}</h3>
               </div>
-              <div className="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-purple)]">
-                <div className="font-semibold text-white mb-1">Big Data & Processing</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">Apache Spark, PySpark, Kafka, Airflow, Databricks, Snowflake, Hadoop, Hive</div>
+              
+              <div className="grid md:grid-cols-3 gap-6">
+                {category.skills.map((skill, skillIndex) => (
+                  <div key={skillIndex} className="bg-gray-50 rounded-xl p-4">
+                    <h4 className="font-semibold text-gray-900 mb-2">{skill.name}</h4>
+                    <p className="text-sm text-gray-600">{skill.items}</p>
+                  </div>
+                ))}
               </div>
-              <div className="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-green)]">
-                <div className="font-semibold text-white mb-1">Databases & Storage</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">MongoDB, BigQuery, Redis, ChromaDB, PostgreSQL, ETL/ELT</div>
-              </div>
-              <div className="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-warning)]">
-                <div className="font-semibold text-white mb-1">DevOps & Infrastructure</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">Docker, Kubernetes, Terraform, CI/CD, MLflow, Git, GitHub</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Machine Learning & AI */}
-          <div className="card p-8 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[var(--color-accent-purple)] to-[var(--color-accent-blue)] opacity-10 rounded-full -translate-y-10 translate-x-10"></div>
-            <div className="flex items-center mb-6">
-              <i className="fas fa-brain text-3xl text-[var(--color-accent-purple)] mr-4"></i>
-              <h3 className="text-2xl font-bold text-white">Machine Learning & AI</h3>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-blue)]">
-                <div className="font-semibold text-white mb-1">ML Frameworks</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">PyTorch, TensorFlow, Scikit-learn, XGBoost, Hyperparameter Tuning, MLflow</div>
-              </div>
-              <div className="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-purple)]">
-                <div className="font-semibold text-white mb-1">NLP & LLMs</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">spaCy, Hugging Face, Large Language Models, RAG, Generative AI</div>
-              </div>
-              <div className="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-green)]">
-                <div className="font-semibold text-white mb-1">Model Deployment</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">Model Deployment, Recommendation & Ranking Systems, Model Registry</div>
-              </div>
-              <div className="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-warning)]">
-                <div className="font-semibold text-white mb-1">Data Science</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">Statistics, Statistical Modeling, EDA, Feature Engineering, A/B Testing</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Data Science & Analytics */}
-          <div className="card p-8 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[var(--color-warning)] to-[var(--color-accent-green)] opacity-10 rounded-full -translate-y-10 translate-x-10"></div>
-            <div className="flex items-center mb-6">
-              <i className="fas fa-chart-line text-3xl text-[var(--color-warning)] mr-4"></i>
-              <h3 className="text-2xl font-bold text-white">Data Science & Analytics</h3>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-blue)]">
-                <div className="font-semibold text-white mb-1">Analytics & Visualization</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">Statistics, Statistical Modeling, EDA, Feature Engineering, A/B Testing, Causal Inference</div>
-              </div>
-              <div className="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-purple)]">
-                <div className="font-semibold text-white mb-1">Tools & Libraries</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">Pandas, NumPy, Matplotlib, Tableau, Power BI, Time Series Forecasting</div>
-              </div>
-              <div className="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-accent-green)]">
-                <div className="font-semibold text-white mb-1">Business Skills</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">Metrics Design, Experimentation, Stakeholder Management, ROI Analysis</div>
-              </div>
-              <div className="bg-[var(--color-bg-tertiary)] p-3 rounded-lg border-l-4 border-[var(--color-warning)]">
-                <div className="font-semibold text-white mb-1">Domain Expertise</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">Customer Analytics, Fraud Detection, Supply Chain, Time Series, Recommendation Systems</div>
-              </div>
-            </div>
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -1,21 +1,12 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { Github, Linkedin, Mail, Menu, X } from 'lucide-react';
 
 export default function ModernNavbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navItems = [
+    { name: 'Home', href: '#hero' },
     { name: 'About', href: '#about' },
     { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
@@ -26,19 +17,15 @@ export default function ModernNavbar() {
   const socialLinks = [
     { icon: Github, href: 'https://github.com/prudhvi-marpina', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/prudhvi-marpina', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:prudhvi.marpina@utdallas.edu', label: 'Email' },
+    { icon: Mail, href: 'mailto:marpina.prudhvi@gmail.com', label: 'Email' },
   ];
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-white/10 backdrop-blur-md border-b border-white/20' 
-          : 'bg-transparent'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
@@ -47,74 +34,48 @@ export default function ModernNavbar() {
             className="flex items-center space-x-2"
             whileHover={{ scale: 1.05 }}
           >
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">P</span>
             </div>
-            <span className="text-xl font-bold text-white">Prudhvi Marpina</span>
+            <span className="text-xl font-bold text-gray-900">rudhvi Marpina</span>
           </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
+            {navItems.map((item) => (
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-white/80 hover:text-white transition-colors relative group"
+                className="text-gray-600 hover:text-blue-600 font-medium transition-colors"
                 whileHover={{ y: -2 }}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                whileTap={{ y: 0 }}
               >
                 {item.name}
-                <motion.div
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-300"
-                  whileHover={{ width: '100%' }}
-                />
               </motion.a>
             ))}
           </div>
 
-          {/* Right Side */}
+          {/* Social Links */}
           <div className="hidden md:flex items-center space-x-4">
-            {/* Social Links */}
-            <div className="flex items-center space-x-2">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  whileTap={{ scale: 0.9 }}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <social.icon className="w-4 h-4 text-white" />
-                </motion.a>
-              ))}
-            </div>
-
-            {/* Theme Toggle */}
-            <ThemeToggle />
-
-            {/* Resume Button */}
-            <motion.a
-              href="/Prudhvi_Marpina_Data_Scientist_Resume.pdf"
-              target="_blank"
-              className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Resume
-            </motion.a>
+            {socialLinks.map((link) => (
+              <motion.a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <link.icon className="w-5 h-5" />
+              </motion.a>
+            ))}
           </div>
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-2 text-white"
+            className="md:hidden p-2 text-gray-600 hover:text-blue-600"
             onClick={() => setIsOpen(!isOpen)}
-            whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -122,56 +83,44 @@ export default function ModernNavbar() {
         </div>
 
         {/* Mobile Menu */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              className="md:hidden mt-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="space-y-4">
-                {navItems.map((item, index) => (
+        {isOpen && (
+          <motion.div
+            className="md:hidden py-4 border-t border-gray-200"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="space-y-4">
+              {navItems.map((item) => (
+                <motion.a
+                  key={item.name}
+                  href={item.href}
+                  className="block text-gray-600 hover:text-blue-600 font-medium transition-colors"
+                  onClick={() => setIsOpen(false)}
+                  whileHover={{ x: 10 }}
+                >
+                  {item.name}
+                </motion.a>
+              ))}
+              <div className="flex space-x-4 pt-4 border-t border-gray-200">
+                {socialLinks.map((link) => (
                   <motion.a
-                    key={item.name}
-                    href={item.href}
-                    className="block text-white/80 hover:text-white transition-colors py-2"
-                    onClick={() => setIsOpen(false)}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
                   >
-                    {item.name}
+                    <link.icon className="w-5 h-5" />
                   </motion.a>
                 ))}
-                
-                <div className="pt-4 border-t border-white/20">
-                  <div className="flex items-center justify-between">
-                    <div className="flex space-x-2">
-                      {socialLinks.map((social, index) => (
-                        <motion.a
-                          key={social.label}
-                          href={social.href}
-                          target="_blank"
-                          className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                          initial={{ opacity: 0, scale: 0 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: index * 0.1 }}
-                        >
-                          <social.icon className="w-4 h-4 text-white" />
-                        </motion.a>
-                      ))}
-                    </div>
-                    <ThemeToggle />
-                  </div>
-                </div>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          </motion.div>
+        )}
       </div>
     </motion.nav>
   );

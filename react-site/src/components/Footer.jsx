@@ -15,7 +15,7 @@ export default function Footer() {
             <a href="https://www.linkedin.com/in/prudhvi-marpina" target="_blank" className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent-blue)] transition-colors">
               <i className="fab fa-linkedin fa-lg"></i>
             </a>
-            <a href="mailto:prudhvi.marpina@utdallas.edu" className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent-green)] transition-colors">
+            <a href="mailto:marpina.prudhvi@gmail.com" className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent-green)] transition-colors">
               <i className="fas fa-envelope fa-lg"></i>
             </a>
             <a href="tel:+14254635402" className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent-green)] transition-colors">
